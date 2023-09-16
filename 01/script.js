@@ -24,9 +24,9 @@ function printName() {
     result.innerHTML += `<p>As últimas 3 letras do seu nome são: <span>${nome.value.slice(
       -3
     )}</span></p>`
-    result.innerHTML += `<p>As palavras do seu nome são: <span>${nome.value.split(
-      ' '
-    )}</span></p>`
+    // result.innerHTML += `<p>As palavras do seu nome são: <span>${nome.value.split(
+    //   ' '
+    // )}</span></p>`
     result.innerHTML += `<p>Seu nome com letras maiúsculas: <span>${nome.value.toUpperCase()}</span></p>`
     result.innerHTML += `<p>Seu nome com letras minúsculas: <span>${nome.value.toLocaleLowerCase()}</span></p>`
     result.innerHTML += `<hr>`
