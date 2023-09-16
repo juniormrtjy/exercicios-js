@@ -1,54 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- ... -->
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image" href="../assets/img-05.jpg" />
+    <link rel="stylesheet" href="style.css" />
     <title>Exercício com String</title>
   </head>
-  <style>
-    p {
-      padding: 5px 30px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      max-width: fit-content;
-    }
-
-    p:hover {
-      border-color: #949393;
-    }
-
-    span {
-      color: rgb(0, 102, 255);
-      font-weight: bold;
-    }
-  </style>
+  <style></style>
   <body>
-    <h1>Exercício com String</h1>
+    <header aria-label="Main header">
+      <h1>Exercício com String</h1>
+    </header>
+
+    <form action="" id="form">
+      <p>
+        <label for="nome" aria-label="Escreva o seu nome">Nome</label>
+        <input type="text" id="nome" placeholder="Digite o seu nome..." />
+      </p>
+
+      <button aria-label="Enviar formulário">Enviar</button>
+    </form>
+
+    <section id="content" aria-label="Conteúdo principal"></section>
     <!-- SCRIPT -->
-    <script>
-      // nome
-      const nome = prompt('Digite o seu nome completo:')
-      // const nome = 'Paulo Roberto de Souza Tavares Junior'
-      document.body.innerHTML += `<p>O seu nome é: <span>${nome}</span>.</p>`
-      document.body.innerHTML += `<p>Seu nome tem <span>${nome.length}</span> letras</p>`
-      document.body.innerHTML += `<p>A segunda letra do seu nome é <span>${nome.slice(
-        1,
-        2
-      )}</span></p>`
-      document.body.innerHTML += `<p>Qual o primeiro índice da letra a no seu nome? <span>${nome.indexOf(
-        'a'
-      )}</span></p>`
-      document.body.innerHTML += `<p>Qual é o último índice da letra a no seu nome? <span>${nome.lastIndexOf(
-        'a'
-      )}</span></p>`
-      document.body.innerHTML += `<p>As últimas 3 letras do seu nome são: <span>${nome.slice(
-        -3
-      )}</span></p>`
-      document.body.innerHTML += `<p>As palavras do seu nome são: <span>${nome.split(
-        ' '
-      )}</span></p>`
-      document.body.innerHTML += `<p>Seu nome com letras maiúsculas: <span>${nome.toUpperCase()}</span></p>`
-      document.body.innerHTML += `<p>Seu nome com letras minúsculas: <span>${nome.toLocaleLowerCase()}</span></p>`
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
