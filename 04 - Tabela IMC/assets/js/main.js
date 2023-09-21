@@ -1,7 +1,7 @@
 // INPUTS
 const form = document.querySelector('form')
-const peso = document.querySelector('#peso')
-const altura = document.querySelector('#altura')
+const pesoInput = document.querySelector('#peso')
+const alturaInput = document.querySelector('#altura')
 const paragraph = document.querySelector('form p')
 
 //
@@ -22,36 +22,47 @@ preventRefresh()
 // CALC IMC
 function calcImc() {
   // paragraph.innerHTML = `<p>Paulo</p>`
+  const peso = Number(pesoInput.value)
+  const altura = Number(alturaInput.value)
+
+  if (!peso) {
+    console.log('Peso inválido')
+    displayMessage('Peso Inválido')
+    return
+  }
+
+  if (!altura) {
+    console.log('Altura inválida')
+    displayMessage('Altura Inválida')
+    return
+  }
 
   //
   // ENVIANDO AS MENSAGENS
-  let imc = Number(peso.value / Math.pow(altura.value, 2))
+  let imc = Number(peso / Math.pow(altura, 2))
+  const message = getMessage(imc)
 
-  if (imc > 0 && imc < 18.5) {
-    console.log(`Seu IMC é de ${imc}, Abaixo do peso`, imc)
-    paragraph.innerHTML = `Seu IMC é de ${imc.toFixed(2)}, Abaixo do peso`
-  } else if (imc >= 18.5 && imc <= 24.9) {
-    console.log(`Seu IMC é de ${imc.toFixed(2)}, Peso normal`, typeof imc)
-    paragraph.innerHTML = `Seu IMC é de ${imc.toFixed(2)}, Peso normal`
-  } else if (imc >= 25 && imc <= 29.9) {
-    console.log(`Seu IMC é de ${imc.toFixed(2)}, Sobrepeso`)
-    paragraph.innerHTML = `Seu IMC é de ${imc.toFixed(2)}, Sobrepeso`
-  } else if (imc >= 30 && imc <= 34.9) {
-    console.log(`Seu IMC é de ${imc.toFixed(2)},Obesidade grau 1`)
-    paragraph.innerHTML = `Seu IMC é de ${imc.toFixed(2)},Obesidade grau 1`
-  } else if (imc >= 35 && imc <= 39.9) {
-    console.log(`Seu IMC é de ${imc.toFixed(2)}, Obesidade grau 2`)
-    paragraph.innerHTML = `Seu IMC é de ${imc.toFixed(2)}, Obesidade grau 2`
-  } else if (imc >= 40 && imc < Infinity) {
-    console.log(`Seu IMC é de ${imc.toFixed(2)}, Obesidade grau 3`)
-    paragraph.innerHTML = `Seu IMC é de ${imc.toFixed(2)}, Obesidade grau 3`
-  } else if (imc == Infinity) {
-    console.log('Valor da altura inválido')
-    paragraph.innerHTML = `Valor da altura inválido`
-  } else if (imc == 0) {
-    console.log('Valor do peso inválido')
-    paragraph.innerHTML = `Valor do peso inválido`
+  displayMessage(`Seu IMC é de ${imc.toFixed(2)} (${message})`)
+}
+
+function getMessage(imc) {
+  if (imc < 18.5) {
+    return 'Abaixo do peso'
+  } else if (imc <= 24.9) {
+    return 'Peso normal'
+  } else if (imc <= 29.9) {
+    return 'Sobrepeso'
+  } else if (imc <= 34.9) {
+    return 'Obesidade grau 1'
+  } else if (imc <= 39.9) {
+    return 'Obesidade grau 2'
+  } else if (imc >= 40) {
+    return 'Obesidade grau 3'
   } else {
-    paragraph.innerHTML = `Você não digitou um valor válido`
+    return `Você não digitou um valor válido`
   }
+}
+
+function displayMessage(message) {
+  paragraph.innerHTML = message
 }
