@@ -12,28 +12,29 @@ let seconds = 0
 let getInterval
 let timerIsRunning = false
 
-// BUTTON START
-button[0].addEventListener('click', () => {
-  if (!timerIsRunning) {
-    timerIsRunning = true
-    getInterval = setInterval(() => {
-      p.innerHTML = createTimer(++seconds)
-    }, 1000)
-  }
-})
+document.addEventListener('click', e => {
+  const el = e.target
 
-// BUTTON PAUSE
-button[1].addEventListener('click', () => {
-  if (timerIsRunning) {
+  if (el.classList.contains('iniciar')) {
+    if (!timerIsRunning) {
+      timerIsRunning = true
+      getInterval = setInterval(() => {
+        p.innerHTML = createTimer(++seconds)
+      }, 1000)
+    }
+  }
+
+  if (el.classList.contains('pausar')) {
+    if (timerIsRunning) {
+      timerIsRunning = false
+      clearInterval(getInterval)
+    }
+  }
+
+  if (el.classList.contains('zerar')) {
     timerIsRunning = false
     clearInterval(getInterval)
+    seconds = 0
+    p.innerHTML = '00:00:00'
   }
-})
-
-// BUTTON RESTART
-button[2].addEventListener('click', () => {
-  timerIsRunning = false
-  clearInterval(getInterval)
-  seconds = 0
-  p.innerHTML = '00:00:00'
 })
