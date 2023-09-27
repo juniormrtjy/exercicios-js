@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #171717;
+  color: #e5e5e5;
+  font-family: sans-serif;
+  padding: 10px;
+}
+
+h1 {
+  text-align: center;
+  padding: 30px;
+}
+
+#timer {
+  background-color: #262626;
+  display: grid;
+  align-content: center;
+  min-height: 400px;
+  padding: 20px;
+}
+
+p {
+  text-align: center;
+  padding: 10px;
+  font-size: 3em;
+}
+
+button {
+  font-size: 1.5em;
+  color: #fff;
+  background: #2e57fa;
+  width: 200px;
+  margin: 10px auto;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
