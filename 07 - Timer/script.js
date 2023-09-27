@@ -18,7 +18,7 @@ button[0].addEventListener('click', () => {
     timerIsRunning = true
     getInterval = setInterval(() => {
       p.innerHTML = createTimer(++seconds)
-    }, 100)
+    }, 1000)
   }
 })
 
