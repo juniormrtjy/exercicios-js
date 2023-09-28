@@ -1,0 +1,115 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --default-width: 31.3rem;
+  --bg: linear-gradient(#8ec5fc, #e0c3fc);
+  --border-color: #b7b7b7;
+  --input-color: #1e80f4;
+}
+
+/* BODY */
+body {
+  font-size: 1.6rem;
+  line-height: 1.5em;
+  font-family: 'Poppins', sans-serif;
+
+  background-image: var(--bg);
+  padding-inline: 1rem;
+  height: 100vh;
+}
+
+/* RESET TAGS */
+button {
+  border: none;
+  /* background: none; */
+  padding: 1rem;
+}
+
+/* HEADER */
+h1 {
+  text-align: center;
+  margin: 5rem 0 3rem 0;
+}
+
+/* MAIN */
+
+main {
+  background: rgba(255, 255, 255, 0.5);
+  max-width: 33.6rem;
+  min-height: 50rem;
+  margin: 1rem auto;
+  padding: 3rem 1.3rem;
+
+  border-radius: 1rem;
+}
+
+form {
+  margin-bottom: 3rem;
+}
+
+form p {
+  display: grid;
+  gap: 1rem;
+}
+
+form label {
+  font-weight: 500;
+}
+
+form input {
+  height: 4.1rem;
+  border-radius: 0.5rem;
+  border: none;
+}
+
+form input:nth-of-type(1) {
+  border: 1px solid var(--border-color);
+  padding-inline: 1.5rem;
+}
+
+form input:nth-of-type(1):focus {
+  outline: 1px solid var(--border-color);
+}
+
+form input:nth-of-type(2) {
+  background-color: var(--input-color);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+form input:nth-of-type(2):hover {
+  background: #569ef1;
+}
+
+section div {
+  background: #fff;
+  padding-inline: 2.5rem;
+  margin-block: 1rem;
+  padding-block: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+section p {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+section i {
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #ff0000;
+}
