@@ -1,0 +1,20 @@
+@keyframes move {
+  0% {
+    right: 100px;
+    opacity: 0;
+  }
+  100% {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+main {
+  position: relative;
+  animation: move 0.4s linear 0.5s backwards;
+}
+
+header {
+  position: relative;
+  animation: move 0.4s 0.3s backwards;
+}
