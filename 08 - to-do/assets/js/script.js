@@ -16,6 +16,14 @@ const taskList = []
 function createTask() {
   const task = inputTask.value
   if (!task) return alert('Please, write a task.')
+  if (
+    task.includes('pedro') ||
+    task.includes('Pedro') ||
+    task.includes('pascal') ||
+    task.includes('Pascal')
+  ) {
+    return alert('Nada de pedro')
+  }
   taskList.push({ task: task })
   localStorage.setItem('task', JSON.stringify(taskList))
 
