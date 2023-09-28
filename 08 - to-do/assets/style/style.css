@@ -43,7 +43,6 @@ h1 {
 main {
   background: rgba(255, 255, 255, 0.5);
   max-width: 33.6rem;
-  min-height: 50rem;
   margin: 1rem auto;
   padding: 3rem 1.3rem;
 
@@ -112,4 +111,25 @@ section i {
   font-size: 1.5em;
   cursor: pointer;
   color: #ff0000;
+}
+
+footer ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  margin-top: 7rem;
+}
+
+footer a {
+  font-size: 1.5em;
+  color: #171717;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: var(--input-color);
 }

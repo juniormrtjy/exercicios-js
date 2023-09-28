@@ -21,7 +21,6 @@ function createTask() {
 
   section.innerHTML += createTags(task)
   inputTask.value = ''
-  inputTask.focus()
 }
 
 function getTasksOnLoad() {

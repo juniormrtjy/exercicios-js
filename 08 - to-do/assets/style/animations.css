@@ -1,4 +1,4 @@
-@keyframes move {
+@keyframes moveRight {
   0% {
     right: 100px;
     opacity: 0;
@@ -9,12 +9,23 @@
   }
 }
 
-main {
-  position: relative;
-  animation: move 0.4s linear 0.5s backwards;
+@keyframes moveUp {
+  0% {
+    top: 100px;
+    opacity: 0;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
 }
 
-header {
+header,
+main {
   position: relative;
-  animation: move 0.4s 0.3s backwards;
+  animation: moveRight 0.4s linear 0.3s backwards;
+}
+
+main {
+  animation-delay: 0.5s;
 }
