@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="assets/style/animations.css" />
     <title>To-do list</title>
   </head>
-  <body onload="getTasksOnLoad()">
+  <body>
     <header>
       <h1>To-do List</h1>
     </header>
@@ -27,12 +27,7 @@
         <p>
           <label for="input__task">Task Name</label>
           <input type="text" name="" id="input__task" maxlength="70" />
-          <input
-            type="submit"
-            value="Create Task"
-            class="add__task"
-            onclick="createTask()"
-          />
+          <input type="submit" value="Create Task" class="add__task" />
         </p>
       </form>
 
@@ -55,6 +50,7 @@
     </main>
 
     <!-- SCRIPT -->
-    <script src="./assets/js/script.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
+    <!-- <script src="./assets/js/script.js"></script> -->
   </body>
 </html>
