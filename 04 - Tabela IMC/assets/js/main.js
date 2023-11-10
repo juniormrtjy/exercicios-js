@@ -29,14 +29,14 @@ function calcImc() {
   if (alturaInput.value.includes(',')) {
     let replaceAltura = alturaInput.value.replace(',', '.')
     altura = Number(replaceAltura)
-    alturaInput.value = replaceAltura
+    alturaInput.value = altura
   }
 
   // REMOVENDO A VÍRGULA DO PESO
   if (pesoInput.value.includes(',')) {
     let replacePeso = pesoInput.value.replace(',', '.')
     peso = Number(replacePeso)
-    pesoInput.value = replacePeso
+    pesoInput.value = peso
   }
 
   // PESO
@@ -52,7 +52,7 @@ function calcImc() {
     let alturaArray = String(altura).split('')
     alturaArray.splice(1, 0, '.')
     altura = Number(alturaArray.join(''))
-    alturaInput.value = Number(alturaArray.join(''))
+    alturaInput.value = altura
   }
 
   if (!altura) {
