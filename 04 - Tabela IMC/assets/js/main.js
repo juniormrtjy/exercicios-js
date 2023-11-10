@@ -22,18 +22,43 @@ preventRefresh()
 // CALC IMC
 function calcImc() {
   // paragraph.innerHTML = `<p>Paulo</p>`
-  const peso = Number(pesoInput.value)
-  const altura = Number(alturaInput.value)
+  let peso = Number(pesoInput.value)
+  let altura = Number(alturaInput.value)
 
+  // REMOVENDO A VÍRGULA DA ALTURA
+  if (alturaInput.value.includes(',')) {
+    let replaceAltura = alturaInput.value.replace(',', '.')
+    altura = Number(replaceAltura)
+    alturaInput.value = replaceAltura
+  }
+
+  // REMOVENDO A VÍRGULA DO PESO
+  if (pesoInput.value.includes(',')) {
+    let replacePeso = pesoInput.value.replace(',', '.')
+    peso = Number(replacePeso)
+    pesoInput.value = replacePeso
+  }
+
+  // PESO
   if (!peso) {
     console.log('Peso inválido')
     displayMessage('Peso Inválido')
+
     return
+  }
+
+  // ALTURA
+  if (!String(altura).includes('.')) {
+    let alturaArray = String(altura).split('')
+    alturaArray.splice(1, 0, '.')
+    altura = Number(alturaArray.join(''))
+    alturaInput.value = Number(alturaArray.join(''))
   }
 
   if (!altura) {
     console.log('Altura inválida')
     displayMessage('Altura Inválida')
+
     return
   }
 
