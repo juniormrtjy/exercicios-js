@@ -125,7 +125,7 @@ section p:hover {
 
 section span {
   flex: 1 1 100%;
-  word-wrap: break-word;
+  word-break: break-word;
 }
 
 section i {
