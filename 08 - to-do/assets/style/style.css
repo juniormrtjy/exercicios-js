@@ -105,21 +105,41 @@ section p {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-top: 10px;
+  flex-wrap: wrap;
+
+  background: #ffffff;
+  border-left: 3px solid #1e80f4;
+  border-radius: 3px;
+
+  margin-top: 15px;
+  padding: 10px;
 }
 
 section p:first-child {
   margin-top: 0;
 }
 
+section p:hover {
+  border-color: #16a34a;
+}
+
 section span {
-  width: 78%;
-  max-width: 85%;
+  flex: 1 1 100%;
   word-wrap: break-word;
 }
 
 section i {
-  font-size: 1.5em;
+  font-size: 1.2em;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 1 30px;
+
+  padding: 3px;
+  border: 1px solid #444;
+  border-radius: 5px;
+
   cursor: pointer;
 }
 
@@ -129,6 +149,7 @@ section i {
 
 .remove {
   color: #ff0000;
+  border-color: #ff0000;
 }
 
 footer ul {
