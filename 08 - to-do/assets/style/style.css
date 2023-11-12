@@ -105,9 +105,15 @@ section p {
   display: flex;
   align-items: center;
   gap: 1rem;
+  margin-top: 10px;
+}
+
+section p:first-child {
+  margin-top: 0;
 }
 
 section span {
+  width: 78%;
   max-width: 85%;
   word-wrap: break-word;
 }
@@ -115,6 +121,13 @@ section span {
 section i {
   font-size: 1.5em;
   cursor: pointer;
+}
+
+.edit_task {
+  color: #444444;
+}
+
+.remove {
   color: #ff0000;
 }
 
