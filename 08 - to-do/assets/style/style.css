@@ -178,7 +178,7 @@ section i,
   border-radius: 10px;
 
   overflow: hidden;
-  transition: top 0.5s;
+  transition: top 0.8s ease-in-out;
 }
 
 .delete-message p {
