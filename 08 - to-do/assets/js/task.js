@@ -42,6 +42,8 @@ export default function removeItem(event) {
 
   if (el.classList.contains('remove')) {
     if (!isProgressActive) {
+      if (isEdit)
+        return alert('Você não pode deletar enquanto edita uma tarefa.')
       el.parentNode.remove()
       alertMessage('Você removeu esta tarefa.')
     }
