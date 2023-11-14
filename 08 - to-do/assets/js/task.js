@@ -14,13 +14,19 @@ export function addTask() {
   if (!task) return alert('Você precisa digitar algo.')
 
   if (!isEdit) {
-    addTaskToDOM(task)
-    taskList.push({ task: task, checked: false })
+    if (!isProgressActive) {
+      addTaskToDOM(task)
+      taskList.push({ task: task, checked: false })
+      alertMessage('Você adicionou uma tarefa.')
+    }
   } else {
-    editTaskInDOM(task)
-    taskList[editIndex].task = task
-    isEdit = false
-    editIndex = undefined
+    if (!isProgressActive) {
+      editTaskInDOM(task)
+      taskList[editIndex].task = task
+      isEdit = false
+      editIndex = undefined
+      alertMessage('Você adicionou uma tarefa.')
+    }
   }
 
   inputTask.focus()
@@ -37,7 +43,7 @@ export default function removeItem(event) {
   if (el.classList.contains('remove')) {
     if (!isProgressActive) {
       el.parentNode.remove()
-      deleteMessage()
+      alertMessage('Você removeu esta tarefa.')
     }
 
     taskList.splice(taskIndex, 1)
@@ -127,16 +133,17 @@ se taskList[0] == true ? check[0].classList.add('checked')
 
 */
 
-function deleteMessage() {
+function alertMessage(txt) {
   isProgressActive = true
   const progress = document.querySelector('#file')
   const messageBox = document.querySelector('.delete-message')
+  const paragraph = document.querySelector('.delete-message p')
 
+  paragraph.textContent = txt
   const progressBar = setInterval(() => {
     if (progress.value > 0) {
       messageBox.style.top = '10px'
       progress.value -= 1
-      console.log('a')
     } else {
       messageBox.style.top = '-500px'
       isProgressActive = false

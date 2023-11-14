@@ -30,7 +30,6 @@ export function createDeleteMessage() {
   const paragraph = document.createElement('p')
   const progress = document.createElement('progress')
 
-  paragraph.textContent = 'Você deletou esta task.'
   progress.setAttribute('value', '100')
   progress.setAttribute('max', '100')
   progress.setAttribute('id', 'file')
