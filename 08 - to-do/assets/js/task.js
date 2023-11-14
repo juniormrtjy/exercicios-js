@@ -1,4 +1,4 @@
-import { createTags } from './tags.js'
+import { createTags, createDeleteMessage } from './tags.js'
 
 const section = document.querySelector('section')
 let inputTask = document.querySelector('#task')
@@ -6,6 +6,7 @@ const taskList = []
 
 let isEdit = false
 let editIndex = undefined
+let isProgressActive = false
 
 // ADD TASK FUNCTION
 export function addTask() {
@@ -34,7 +35,10 @@ export default function removeItem(event) {
   const taskIndex = getTaskIndex(el)
 
   if (el.classList.contains('remove')) {
-    el.parentNode.remove()
+    if (!isProgressActive) {
+      el.parentNode.remove()
+      deleteMessage()
+    }
 
     taskList.splice(taskIndex, 1)
     setLocalStorage()
@@ -80,6 +84,8 @@ export function loadTasks() {
     const check = document.querySelectorAll('.check')
     if (tasks[i].checked) check[i].classList.add('checked')
   }
+
+  createDeleteMessage()
 }
 
 function addTaskToDOM(task) {
@@ -120,3 +126,25 @@ se taskList[0] == true ? check[0].classList.add('checked')
 
 
 */
+
+function deleteMessage() {
+  isProgressActive = true
+  const progress = document.querySelector('#file')
+  const messageBox = document.querySelector('.delete-message')
+
+  const progressBar = setInterval(() => {
+    if (progress.value > 0) {
+      messageBox.style.top = '10px'
+      progress.value -= 1
+      console.log('a')
+    } else {
+      messageBox.style.top = '-500px'
+      isProgressActive = false
+    }
+  }, 15)
+
+  if (progress.value == 0) {
+    progress.value = 100
+    clearInterval(progressBar)
+  }
+}

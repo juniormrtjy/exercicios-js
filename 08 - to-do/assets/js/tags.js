@@ -20,3 +20,22 @@ export function createTags(task) {
 
   return paragraph
 }
+
+export function createDeleteMessage() {
+  const main = document.querySelector('main')
+
+  const div = document.createElement('div')
+  div.setAttribute('class', 'delete-message')
+
+  const paragraph = document.createElement('p')
+  const progress = document.createElement('progress')
+
+  paragraph.textContent = 'Você deletou esta task.'
+  progress.setAttribute('value', '100')
+  progress.setAttribute('max', '100')
+  progress.setAttribute('id', 'file')
+  div.appendChild(paragraph)
+  div.appendChild(progress)
+
+  main.appendChild(div)
+}
