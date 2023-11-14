@@ -120,7 +120,7 @@ section p:first-child {
 }
 
 section p:hover {
-  border-color: #16a34a;
+  border-color: #10b981;
 }
 
 section span {
@@ -159,9 +159,9 @@ section i,
 }
 
 .check.checked {
-  background: #16a34a;
+  background: #10b981;
   color: #fff;
-  border-color: #16a34a;
+  border-color: #10b981;
   opacity: 1;
 }
 
