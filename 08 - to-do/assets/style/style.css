@@ -166,7 +166,8 @@ section i,
 }
 
 .delete-message {
-  width: calc(100% - 20px);
+  max-width: 33.6rem;
+  width: 100%;
   position: fixed;
   top: -500px;
   left: 50%;
