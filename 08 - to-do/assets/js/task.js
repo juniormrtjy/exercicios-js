@@ -25,7 +25,7 @@ export function addTask() {
       taskList[editIndex].task = task
       isEdit = false
       editIndex = undefined
-      alertMessage('Você adicionou uma tarefa.')
+      alertMessage('Você editou esta tarefa.')
     }
   }
 
