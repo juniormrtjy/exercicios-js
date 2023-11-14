@@ -14,10 +14,10 @@ export function addTask() {
 
   if (!isEdit) {
     addTaskToDOM(task)
-    taskList.push(task)
+    taskList.push({ task: task, checked: false })
   } else {
     editTaskInDOM(task)
-    taskList[editIndex] = task
+    taskList[editIndex].task = task
     isEdit = false
     editIndex = undefined
   }
@@ -48,17 +48,37 @@ export default function removeItem(event) {
     isEdit = true
     inputTask.focus()
   }
+
+  // CHECK TASK
+  if (el.classList.contains('check')) {
+    editIndex = taskIndex
+    const isChecked = taskList[editIndex].checked
+    if (!isChecked) {
+      el.classList.toggle('checked')
+      checkTaskInDOM()
+      return
+    }
+
+    el.classList.toggle('checked')
+    checkTaskInDOM()
+  }
 }
 
 // LOAD TASK FUNCTION
 export function loadTasks() {
   const tasks = JSON.parse(localStorage.getItem('tasks'))
 
+  // PRINT TASK IN DOM
   if (tasks) {
     tasks.forEach(task => {
-      addTaskToDOM(task)
+      addTaskToDOM(task.task)
       taskList.push(task)
     })
+  }
+
+  for (let i in taskList) {
+    const check = document.querySelectorAll('.check')
+    if (tasks[i].checked) check[i].classList.add('checked')
   }
 }
 
@@ -74,10 +94,29 @@ function editTaskInDOM(task) {
 
 function getTaskIndex(el) {
   return taskList.findIndex(
-    element => element == el.parentNode.firstChild.textContent
+    element => element.task == el.parentNode.firstChild.textContent
   )
 }
 
 function setLocalStorage() {
   localStorage.setItem('tasks', JSON.stringify(taskList))
 }
+
+function checkTaskInDOM() {
+  let checkBtn = taskList[editIndex].checked
+  !checkBtn
+    ? (taskList[editIndex].checked = true)
+    : (taskList[editIndex].checked = false)
+
+  setLocalStorage()
+}
+
+/* 
+
+Se na taskList estiver true, o icon referente precisa ser marcado. Como eu faço isso?
+eu preciso retornar todos os buttons disponíveis no load, ok. Eles vão poder ser acessados através do index deles e então, eu tenho controle sobre o que marcar.
+
+se taskList[0] == true ? check[0].classList.add('checked')
+
+
+*/

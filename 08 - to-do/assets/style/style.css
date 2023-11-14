@@ -128,7 +128,8 @@ section span {
   word-break: break-word;
 }
 
-section i {
+section i,
+.check {
   font-size: 1.2em;
 
   display: inline-flex;
@@ -150,6 +151,18 @@ section i {
 .remove {
   color: #ff0000;
   border-color: #ff0000;
+}
+
+.check {
+  background: none;
+  opacity: 0.3;
+}
+
+.check.checked {
+  background: #16a34a;
+  color: #fff;
+  border-color: #16a34a;
+  opacity: 1;
 }
 
 footer ul {
