@@ -14,7 +14,8 @@
 
 [Tabela IMC](#tabela-imc) <br>
 [To-do list](#to-do-list) <br>
-[Guess my Number](#guess-my-number)
+[Guess my Number](#guess-my-number) <br>
+[The Pig Game](#the-pig-game)
 
 ## Tabela IMC
 
@@ -48,5 +49,20 @@
 > <img src="./assets/readme img/guess/guess 03.png" alt="Guess my number">
 
 [Acessar projeto](https://exercicios-js-three.vercel.app/09%20-%20guess%20my%20number/index.html)
+
+[Voltar ao Índice](#índice)
+
+## The Pig Game
+
+> Tela inicial
+> <img src="./assets/readme img/pig game/pig-01.png" alt="Guess my number">
+
+> Jogo iniciado
+> <img src="./assets/readme img/pig game/pig-02.png" alt="Guess my number">
+
+> Vencedor
+> <img src="./assets/readme img/pig game/pig-03.png" alt="Guess my number">
+
+[Acessar projeto]()
 
 [Voltar ao Índice](#índice)
