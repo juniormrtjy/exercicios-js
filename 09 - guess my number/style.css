@@ -84,6 +84,12 @@ h1 {
   left: 2rem;
 }
 
+.clear {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+}
+
 .guess {
   background: none;
   border: 4px solid #eee;
@@ -129,9 +135,11 @@ h1 {
   html {
     font-size: 50%;
   }
+
   body {
     padding-block: 2rem;
   }
+
   header {
     display: grid;
     align-items: center;
@@ -141,24 +149,21 @@ h1 {
     margin-bottom: 2rem;
     padding: 2rem;
   }
+
   h1,
   .again,
+  .clear,
   .number,
   .between {
     position: static;
     transform: none;
-  }
-  .again {
-    /* position: static; */
-  }
-
-  .number {
   }
 
   main {
     display: grid;
     height: auto;
   }
+
   section {
     max-width: 52rem;
     text-align: center;

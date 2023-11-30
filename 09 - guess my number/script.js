@@ -1,75 +1,95 @@
 'use strict'
 
-// document.querySelector('.message').textContent;
-// document.querySelector('.number').textContent = 13;
-// document.querySelector('.score').textContent = 10;
-
-// document.querySelector('.guess').value;
 let highScore = document.querySelector('.highscore')
 const tryAgain = document.querySelector('.again')
+const clearHghScore = document.querySelector('.clear')
+
+// FUNCTIONS
 tryAgain.addEventListener('click', () => {
   location.reload()
 })
 
-let score = 20
-document.querySelector('.score').textContent = score
-const secretNumber = Math.trunc(Math.random() * 20) + 1
-document.querySelector('.number').textContent = '?'
-console.log(secretNumber)
+// DISPLAY MESSAGE
+const displayMessage = message => {
+  document.querySelector('.message').textContent = message
+}
 
-const checkBtn = document.querySelector('.check')
+// DISPLAY SCORE
+const displayScore = score => {
+  document.querySelector('.score').textContent = score
+}
 
-checkBtn.addEventListener('click', () => {
-  const guess = Number(document.querySelector('.guess').value)
-  console.log(guess)
+// DISPLAY NUMBER
+const displayNumber = number => {
+  document.querySelector('.number').textContent = number
+}
 
-  if (!guess) {
-    document.querySelector('.message').textContent = '💢 No Number!'
-  } else if (guess == secretNumber) {
-    document.querySelector('.message').textContent = '🎉 Correct Number'
-    document.querySelector('.number').textContent = secretNumber
-
-    document.body.style.backgroundColor = '#16a34a'
-    endGame()
-    saveHighScore(score)
-  } else if (guess > secretNumber) {
-    document.querySelector('.message').textContent = '📈 Too High!'
-    decreaseNumber()
-  } else if (guess < secretNumber) {
-    document.querySelector('.message').textContent = '📉 Too Low!'
-    decreaseNumber()
-  }
-})
-
-function saveHighScore(score) {
+// SAVE HIGHSCORE
+const saveHighScore = score => {
   const getHighScore = localStorage.getItem('HighScore')
   if (getHighScore > score) return
   localStorage.setItem('HighScore', score)
   highScore.textContent = score
 }
 
-const loadHighScore = () => {
-  const getScore = localStorage.getItem('HighScore')
-  if (getScore) highScore.innerHTML = getScore
-}
+// CLEAR HIGHSCORE FROM LOCALSTORAGE
+clearHghScore.addEventListener('click', () => {
+  localStorage.setItem('HighScore', 0)
+  highScore.textContent = 0
+})
 
-function decreaseNumber() {
+// DECREASENUMBER
+const decreaseNumber = (guess, secretNumber) => {
   if (score > 1) {
+    displayMessage(guess > secretNumber ? '📈 Too High!' : '📉 Too Low!')
     score--
-    document.querySelector('.score').textContent = score
+    displayScore(score)
     return
   } else {
-    document.querySelector('.score').textContent = 0
-    document.querySelector('.message').textContent =
-      'You Lost! Try again if you want.'
-    document.querySelector('.number').textContent = secretNumber
+    displayScore(0)
+    displayMessage('You Lost! Try again if you want.')
+    displayNumber(secretNumber)
     document.body.style.backgroundColor = '#450a0a'
     endGame()
   }
 }
 
-function endGame() {
+// ENDGAME
+const endGame = () => {
   document.querySelector('.guess').setAttribute('disabled', '')
   checkBtn.setAttribute('disabled', '')
   checkBtn.classList.add('disabled')
+}
+
+// SET SCORE
+let score = 20
+displayScore(score)
+
+// GENERATE RANDOM NUMBER BETWEEN 1 AND 20
+const secretNumber = Math.trunc(Math.random() * 20) + 1
+
+// CHECK YOUR NUMBER
+const checkBtn = document.querySelector('.check')
+checkBtn.addEventListener('click', () => {
+  const guess = Number(document.querySelector('.guess').value)
+  console.log(guess)
+
+  if (!guess) {
+    displayMessage('💢 No Number!')
+  } else if (guess == secretNumber) {
+    displayMessage('🎉 Correct Number')
+    displayNumber(secretNumber)
+
+    document.body.style.backgroundColor = '#16a34a'
+    endGame()
+    saveHighScore(score)
+  } else if (guess !== secretNumber) {
+    decreaseNumber(guess, secretNumber)
+  }
+})
+
+// LOAD HIGHSCORE ON LOAD PAGE
+const loadHighScore = () => {
+  const getScore = localStorage.getItem('HighScore')
+  if (getScore) highScore.innerHTML = getScore
 }
